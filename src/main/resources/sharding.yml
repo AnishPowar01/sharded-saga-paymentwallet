@@ -19,15 +19,24 @@ rules:
       standard:
         shardingColumn: id
         shardingAlgorithmName: db-inline
+
     tables:
       user:
+        actualDataNodes: shardwallet${1..2}.user
         databaseStrategy:
           standard:
             shardingColumn: id
             shardingAlgorithmName: db-inline
+        keyGenerateStrategy:
+          column: id
+          keyGeneratorName: snowflake
 
     shardingAlgorithms:
       db-inline:
         type: INLINE
         props:
           algorithm-expression: shardwallet${id % 2 + 1}
+
+    keyGenerators:
+      snowflake:
+        type: SNOWFLAKE
