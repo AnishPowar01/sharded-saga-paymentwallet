@@ -38,6 +38,7 @@ public class DebitSourceWalletStep implements SagaStep {
     }
 
     @Override
+    @Transactional
     public boolean compensate(SagaContext context) {
         Long fromWalletId = context.getLong("fromWalletId");
         BigDecimal amount = context.getBigDecimal("amount");
