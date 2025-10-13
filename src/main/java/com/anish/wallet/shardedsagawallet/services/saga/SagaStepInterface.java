@@ -1,6 +1,6 @@
 package com.anish.wallet.shardedsagawallet.services.saga;
 
-public interface SagaStep {
+public interface SagaStepInterface {
 
     boolean execute(SagaContext context);
 

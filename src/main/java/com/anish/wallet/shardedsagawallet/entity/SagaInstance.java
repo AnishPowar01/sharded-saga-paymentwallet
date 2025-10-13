@@ -12,6 +12,7 @@ import org.apache.calcite.model.JsonType;
 @AllArgsConstructor
 @Setter
 @Getter
+@Builder
 @Table(name = "saga_instance")
 public class SagaInstance {
     @Id
@@ -26,7 +27,7 @@ public class SagaInstance {
     @Column(name = "context", columnDefinition = "json")
     private String context;
 
-    @Column(name = "current_step", nullable = false)
+    @Column(name = "current_step")
     private String currentStep;
 
 

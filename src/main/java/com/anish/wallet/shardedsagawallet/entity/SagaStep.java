@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @Setter
 @Getter
+@Builder
 @Table(name = "saga_step")
 public class SagaStep {
     @Id

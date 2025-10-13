@@ -3,7 +3,7 @@ package com.anish.wallet.shardedsagawallet.services.saga.steps;
 import com.anish.wallet.shardedsagawallet.entity.Wallet;
 import com.anish.wallet.shardedsagawallet.repositories.WalletRepository;
 import com.anish.wallet.shardedsagawallet.services.saga.SagaContext;
-import com.anish.wallet.shardedsagawallet.services.saga.SagaStep;
+import com.anish.wallet.shardedsagawallet.services.saga.SagaStepInterface;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class CreditDestinationWalletStep implements SagaStep {
+public class CreditDestinationWalletStep implements SagaStepInterface {
 
     private final WalletRepository walletRepository;
 
@@ -60,6 +60,6 @@ public class CreditDestinationWalletStep implements SagaStep {
 
     @Override
     public String getStepName() {
-        return "CreditDestinationWalletStep";
+        return SagaStepFactory.SagaStepType.CREDIT_DESTINATION_WALLET_STEP.toString();
     }
 }
