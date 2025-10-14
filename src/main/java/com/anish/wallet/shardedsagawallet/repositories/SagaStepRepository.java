@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface SagaStepRepository extends JpaRepository<SagaStep, Long> {
 
@@ -19,4 +20,6 @@ public interface SagaStepRepository extends JpaRepository<SagaStep, Long> {
     List<SagaStep> findCompletedOrCompensatedStepsBySagaInstanceId(@Param("sagaInstanceId") Long sagaInstanceId);
 
     List<SagaStep> findBySagaInstanceIdAndStatus(Long sagaInstanceId, StepStatus status);
+
+    Optional<SagaStep> findBySagaInstanceIdAndStepNameAndStatus(Long sagaInstanceId, String stepName, StepStatus status);
 }
